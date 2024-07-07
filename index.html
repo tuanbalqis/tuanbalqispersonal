@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⋆｡‧˚ʚTuan Balqis’s Websiteɞ˚‧｡⋆</title>
+    <style>
+        @font-face {
+        font-family: pixelFont;
+        src: url(font/rainyhearts.ttf);
+        }
+
+        body {
+            font-family: pixelFont;
+            background-image: url('image/Wallpaper.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            flex: 1;
+        }
+        .topnav {
+            background-color: #f351a8;
+            overflow: hidden;
+            position: fixed;
+            width:100%;
+            top:0;
+            z-index: 1000;
+        }
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        header {
+            text-align: center;
+            background: url('image/Tuan Balqis Website Header.png');
+            /* box-shadow: inset 0 0 0 1000px rgba(245,105,180,.3); */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            font-size: 2em;
+            height:400px;
+            width:100%;
+        }
+        footer {
+            text-align: center;
+            height: 10px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+        }
+        .gif-floater {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 200px; 
+            height: 200px; 
+            z-index: 1000;
+        }
+        .greet {
+            font-size: 1.5em;
+        }
+        .header-container {
+            justify-content: center;
+            background-color: #f569b4;
+            opacity: 0.75;
+            
+        }
+        .header {
+            text-align: center;
+        }
+        svg {
+            display:flex;
+            width: 100%;
+            height: 115px;
+            max-width: 100%;
+            justify-content: center;
+        }
+
+        svg text {
+            text-transform: uppercase;
+            animation: stroke 5s infinite alternate;
+            stroke-width: 1;
+            stroke: white;
+            font-size: 2em;
+
+        }
+
+        @keyframes stroke {
+            0%   {
+                fill: rgba(72,138,20,0); 
+                stroke: rgb(255, 255, 255);
+                stroke-dashoffset: 25%; 
+                stroke-dasharray: 0 50%; 
+                stroke-width: 1;
+            }
+            70%  {
+                fill: rgba(72,138,20,0); 
+                stroke: rgb(255, 255, 255); 
+                stroke-width: 1;
+            }
+            80%  {
+                fill: rgba(72,138,20,0); 
+                stroke: rgb(255, 255, 255); 
+                stroke-width: 1.5;
+            }
+            100% {
+                fill: rgb(255, 255, 255); 
+                stroke: rgba(54,95,160,0); 
+                stroke-dashoffset: -25%; 
+                stroke-dasharray: 50% 0; 
+                stroke-width: 0;
+            }
+        }
+
+        
+        .biodata, .skills, .experience, .goals, .family, .gallery-container, .education, .contact {
+            color: white;
+            background-color: rgba(250, 177, 216, 0.85);
+            width: 100%;
+            max-width: 600px; 
+            padding: 20px;
+            margin: 20px auto; 
+            font-size: 20px;
+            text-align: left; 
+            border-radius: 10px; 
+        }
+        .skills {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; 
+        }
+        .skill-component {
+            width: 100%; 
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center; 
+            padding: 10px 0; 
+            border-bottom: 1px solid white; 
+        }
+        .skill-component:last-child {
+            border-bottom: none; 
+        }
+        .biodata-container {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .profile-image {
+            position: sticky;
+            top: 0;
+            width: 300px;
+            height: auto;
+            margin-right: 20px; 
+            flex-shrink: 0; 
+        }
+
+        .biodata-text {
+            flex: 1; 
+        }
+
+        table{
+            color:white;
+        }
+
+        .header{
+            background-color: #f351a8;
+        }
+
+        tr{
+            background-color: #f569b4;
+
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px; 
+            margin: 0 auto 20px; 
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            display: block;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-inner div {
+            min-width: 100%;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            /* padding: 10px; */
+        }
+        .grid-gallery {
+            --size: 100px;
+            display: grid;
+            grid-template-columns: repeat(6, var(--size));
+            grid-auto-rows: var(--size);
+            gap: 5px;
+            padding-bottom: 20px;
+            place-items: start center;
+            margin-bottom: var(--size);
+        }
+
+        .grid-gallery img {
+            width: calc(var(--size) * 2);
+            height: calc(var(--size) * 2);
+            object-fit: cover;
+            grid-column: auto / span 2;
+            border-radius: 5px;
+            clip-path: path("M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"); 
+            transition: clip-path 0.25s, filter 0.75s;
+        }
+
+        .grid-gallery img:nth-child(5n - 1) { 
+            grid-column: 2 / span 2 
+        }
+
+        .grid-gallery img:hover {
+            clip-path: path("M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z");
+            transition: clip-path 0.25s, filter 0.25s;
+            z-index: 1;
+        }
+
+        .grid-gallery:has(img:hover) img:not(:hover) {
+            filter: brightness(0.5) contrast(0.5);
+        }
+
+        .grid-gallery a:focus {
+            outline: 1px dashed black;
+            outline-offset: -5px;
+        }
+
+        .column {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+        .column input[type="text"], 
+        .column textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .column textarea {
+            height: 150px;
+        }
+        .column input[type="submit"] {
+            background-color: #484848;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        .column input[type="submit"]:hover {
+            background-color: #989898;
+        }
+        .row{
+            display:flex;
+            flex-direction:row;
+        }
+        video{
+            width: 300px;
+            height: 500px;
+        }
+
+        #video1{
+            position: absolute;
+            left: 1125px;
+            margin-top: -136%;
+        }
+
+        #video2{
+            position: absolute;
+            right: 1125px;
+            margin-top: -136%;
+        }
+
+        #video3 {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 30px;
+        }
+
+        .education-component{
+            width: 300px;
+            height: 300px;
+            border-radius: 50px;
+            background-color: #f351a8;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+
+        }
+
+        .education-container{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+
+        }
+
+        .ed-image{
+            width:60%;
+            height:60%;
+            border-radius: 50px;
+            padding-bottom: 10px;
+        }
+
+        audio{
+            padding-top: 375px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="topnav">
+            <a href="#home">Home ⁠𐙚</a>
+            <a href="#biodata">Biodata ⁠𐙚</a>
+            <a href="#education">Education ⁠𐙚</a>
+            <a href="#experience">Experience ⁠𐙚</a>
+            <a href="#skills">Skills ⁠𐙚</a>
+            <a href="#goals">Goals ⁠𐙚</a>
+            <a href="#gallery">Galleries 𐙚</a>
+            <a href="#family">Family 𐙚</a>
+            <a href="#contact">Contact 𐙚</a>
+        </div>
+        <div class="header-container" id="home">
+            <div style="padding-top:60px;">
+            <svg viewBox="0 0 400 100">
+                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">
+                        ⋆｡‧˚ʚTuan Balqis’s Websiteɞ˚‧｡⋆
+                    </text> 
+            </svg>
+            </div>
+        </div>
+        <header>
+                <audio controls autoplay>
+                    <source src="video/NewJeans 'New Jeans (ft. The Powerpuff Girls)'.mp3">
+                </audio>
+        </header>
+        <div class="content">
+            <div class="biodata" id="biodata">
+                <h2 style="text-align: center; font-size: 3em">BIODATA</h2>
+                <div class="greet"></div>
+                <p>
+                    Hoping everyone is in the pink of health!!<br><br>
+                    Welcome to my corner of the internet!!<br><br>
+                    I am Tuan Balqis Izzati Binti Tuan Halizan, born on February 8, 2003, at Hospital Universiti Sains Malaysia Kubang Kerian, Kota Bharu, Kelantan. Currently in my final year Semester 5 pursuing my Diploma.<br><br>
+                    I am a very caring and loving person.<br>
+                    I have lots of pets such as Cats, Rabbits, and Hamsters. All of them are so cute.<br><br>
+                </p>
+                <div class="biodata-container">
+                    <img src="image/My Picture.jpeg" class="profile-image">
+                    <div>
+                        <p>
+                            First and Foremost, I want to introduce everyone to my Beloved Parents.
+                            My Dad who I called him Ayah name is Tuan Halizan Bin Tuan Raja Yaakub. He worked as an Officer at The Royal Malaysian Navy Armed Forces. My Mom who I called her Umi name is Rosmani Binti Che Lah@Abdullah. She worked as a Science and Mathematic Teacher at SK Dewan Besar, Machang, Kelantan.
+                            My Older Brother named Tuan Badiuzzaman. He was a graduate of Bachelor in Laws at International Islamic University Malaysia (IIUM). My Older Sister named Tuan Busyra Azzahra. She was a graduate of Bachelor in Marine Biology at University Malaysia Terengganu (UMT). My fourth little sibling named Tuan Baihaqi Nurmans. He is studying at Darul Quran right now. My fifth little sibling named Tuan Bukhari Arushd. He just finished the Foundation and currently studying Bachelor of Medicine & Bachelor of Surgery [MBBS] at University of Cyberjaya (UOC). My Youngest sister named Tuan Batrisya Umaira. She is 17 years old now, a Pure Science stream SPM student at Sekolah Berasrama Penuh SM Sains Pasir Putih.
+                            I am the third child in my family from 6 siblings.
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    They say life is a journey, and mine has been a whirlwind of experiences that have shaped who I am today. Allow me to take you through the kaleidoscope of my life.<br><br>
+                    I was born with a silver spoon in my mouth in a bustling city, where dreams take flight like birds in the sky. From a tender age, my parents instilled in me the importance of hard work and perseverance. They always reminded me that Rome wasn't built in a day, and that every cloud has a silver lining. With their guidance, I navigated through the ups and downs of childhood, learning valuable lessons along the way.<br><br>
+                    As I entered adolescence, I discovered my beautiful passion for coding, programming and books. Also, like a fish out of water, I found solace in scuba diving, streaming Korean dramas, Chinese dramas, Japanese anime, and listening to music which truly became my sanctuary during turbulent times. Through thick and thin, these passions have been my saving grace, allowing me to express myself freely and creatively.<br><br>
+                    Fast forward to the present day, and I find myself at a crossroads, ready to embark on the next chapter of my journey. Armed with a heart of gold and a thirst for knowledge, I am eager to seize every opportunity that comes my way. As they say, the sky's the limit, and I am determined to reach for the stars.<br><br>
+                    In conclusion, life is a rollercoaster ride filled with twists and turns, but I wouldn't have it any other way. I am really excited to see where the future takes me.<br><br>
+                    Thank you a lot for joining me on this adventure through my personal website!!
+                </p>
+            </div>
+            <div class="skills" id="skills">
+                <h2 style="text-align: center; font-size: 3em">SKILLS</h2>
+                <div class="skill-component">
+                    <img class="puzzle" src="image/edit.gif" alt="Edit" style="width: 100px; height: auto; padding-bottom: 5px;">
+                    Editing Skills
+                </div>
+                <div class="skill-component">
+                    <img class="puzzle" src="image/puzzle.gif" alt="Puzzle" style="width: 100px; height: auto; padding-bottom: 5px;">
+                    Problem-Solving Skills
+                    
+                </div>
+                <div class="skill-component">
+                    <img class="puzzle" src="image/writing.gif" alt="Puzzle" style="width: 100px; height: auto; padding-bottom: 5px;">
+                    Literacy-Writing Skills
+                </div>
+                <div class="skill-component">
+                    <img class="puzzle" src="image/microsoft.png" alt="Puzzle" style="width: 100px; height: auto; padding-bottom: 5px;">
+                    Microsoft
+                </div>
+                <div class="skill-component">
+                    <img class="puzzle" src="image/canva.png" alt="Puzzle" style="width: 100px; height: auto; padding-bottom: 5px;">
+                    Canva
+                </div>
+                <div class="skill-component">
+                    <img class="puzzle" src="image/adobe.png" alt="Puzzle" style="width: 100px; height: auto; padding-bottom: 5px;">
+                    Adobe
+                </div>
+            </div>
+            <div class="experience" id="experience">
+                <h2 style="text-align: center; font-size: 3em">EXPERIENCE</h2>
+                <table>
+                    <thead>
+                      <tr class="header">
+                        <th> YEAR </th>
+                        <th> EXPERIENCE </th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td> 2022 </td>
+                      <td> Participating in Taekwondo Remaja Kebangsaan Tournament at USM Pulau Pinang (Bronze Medal) </td>
+                    </tr>
+                    <tr>
+                      <td> 2023 </td>
+                      <td> Participating in Sukan Antara Fakulti [SAF] E-Sports Tournament Mobile Legends representing Fakulti Pengurusan Maklumat (Gold Medal) </td>
+                    </tr>
+                    <tr>
+                      <td> 2023 </td>
+                      <td> Participating in Karnival Sukan Mahasiswa UiTM [KARISMA] E-Sports Tournament Mobile Legends representing UiTM Kampus Machang Cawangan Kelantan (1st Place) </td>
+                    </tr>
+                    <tr>
+                      <td> 2024 </td>
+                      <td> Internship at UniKL MIMET, Lumut, Perak. </td>
+                    </tr>
+                    <tr>
+                        <td> 2024 </td>
+                        <td> Held a program and worked as an Activities Committee Member </td>
+                      </tr>
+                      <tr>
+                        <td> 2024 </td>
+                        <td> Held a program and worked as an Biro of Information </td>
+                      </tr>
+                  </table>
+                </div>
+            </div>
+            <div class="education" id="education">
+                <h2 style="text-align: center; font-size: 3em">EDUCATION</h2>
+                <div class="education-container">
+                    <div class="education-component">
+                        <img class="ed-image" src="education/SK Chendering.jpg" alt="Gallery 1" />
+                        SK Chendering
+    
+                    </div>
+                    <div class="education-component">
+                        <img class="ed-image" src="education/SMK Machang.jpg" alt="Gallery 1" />
+                        SMK Machang
+    
+                    </div>
+                    <div class="education-component">
+                        <img class="ed-image" src="education/MRSM Besut.png" alt="Gallery 1" />
+                        MRSM Besut
+    
+                    </div>
+                    <div class="education-component">
+                        <img class="ed-image" src="education/uitm.png" alt="Gallery 1" />
+                        UiTM Machang
+    
+                    </div>
+                </div>
+            </div>
+            <div class="goals" id="goals">
+                <h2 style="text-align: center; font-size: 3em">GOALS</h2>
+                <ul style="list-style-type: square; background-color: #f351a8; color: white;">
+                    <li> Foster meaningful connections with my beloved family and friend.</li>
+                    <li> Excel my studies in Diploma of Information Management </li>
+                    <li> Pursue my degree in Bachelor of Information System  </li>
+                    <li> Achieve Dean List of 3.5 pointer every semester </li>
+                    <li> Improving my coding skills in a specific framework. </li>
+                    <li> Mastering my programming skills in a particular language. </li>
+                    <li>Enhancing my skills more, such as in communication, collaboration, teamwork, and leadership.</li>
+                    <li>Developing critical-thinking abilities.</li> 
+                    <li>Travelling to all of the country in the world.</li>
+                </ul>
+            </div>
+            <div class="family" id="family">
+                <h2 style="text-align: center; font-size: 3em">FAMILY</h2>
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div><img src="image/Family 1.png"></div>
+                        <div><img src="image/Family 2.png"></div>
+                        <div><img src="image/Family 3.png"></div>
+                        <div><img src="image/Family 4.png"></div>
+                        <div><img src="image/Family 5.png"></div>
+                        <div><img src="image/Family 6.png"></div>
+                  </div>
+                  <div class="carousel-controls">
+                    <button id="prev">&#10094;</button>
+                    <button id="next">&#10095;</button>
+                  </div>
+                </div>
+            </div>
+            <div class="gallery-container" id="gallery" >
+                <h2 style="text-align: center; font-size: 3em">GALLERIES</h2>
+                <article class="grid-gallery">
+                    <img src="image/Gallery 1.png" alt="Gallery 1" />
+                    <img src="image/Gallery 2.png" alt="Gallery 2" />
+                    <img src="image/Gallery 3.png" alt="Gallery 3" />
+                    <img src="image/Gallery 4.png" alt="Gallery 4" />
+                    <img src="image/Gallery 5.png" alt="Gallery 5" />
+                    <img src="image/Gallery 6.png" alt="Gallery 6" />
+                    <img src="image/Gallery/Tuan Balqis Website 1.JPG" alt="Gallery 7" />
+                    <img src="image/Gallery/Tuan Balqis Website 2.PNG" alt="Gallery 8" />
+                    <img src="image/Gallery/Tuan Balqis Website 3.PNG" alt="Gallery 9" />
+                    <img src="image/Gallery/Tuan Balqis Website 4.PNG" alt="Gallery 10" />
+                    <img src="image/Gallery/Tuan Balqis Website 5.PNG" alt="Gallery 11" />
+                    <img src="image/Gallery/Tuan Balqis Website 6.PNG" alt="Gallery 12" />
+                    <img src="image/Gallery/Tuan Balqis Website 7.PNG" alt="Gallery 13" />
+                    <img src="image/Gallery/Tuan Balqis Website 8.PNG" alt="Gallery 14" />
+                    <img src="image/Gallery/Tuan Balqis Website 9.WEBP" alt="Gallery 15" />
+                    <img src="image/Gallery/Tuan Balqis Website 10.PNG" alt="Gallery 16" />
+                    <img src="image/Gallery/Tuan Balqis Website 11.PNG" alt="Gallery 17" />
+                    <img src="image/Gallery/Tuan Balqis Website 12.PNG" alt="Gallery 18" />
+                    <img src="image/Gallery/Tuan Balqis Website 13.PNG" alt="Gallery 19" />
+                    <img src="image/Gallery/Tuan Balqis Website 14.JPG" alt="Gallery 20" />
+                    <img src="image/Gallery/Tuan Balqis Website 15.JPG" alt="Gallery 21" />
+                </article>
+                <h2 style="text-align: center; font-size: 3em; padding-top: 20px; border-top: 2px solid white;">WITH SIR ADZIN</h2>
+                <img style="height: 350px; width: 500px; margin-left: auto; margin-right:auto; display: block; padding-bottom: 30px;" src="image/sir.JPG" alt="Sir"/>
+                <img style="height: 350px; width: 500px; margin-left: auto; margin-right:auto; display: block; padding-bottom: 30px; border-bottom: 2px solid white; " src="image/sir2.JPG" alt="Sir2"/>
+                <video autoplay controls id="video3">
+                    <source src="image/My Video.mp4" type="video/mp4">
+                </video>
+                <video autoplay controls id="video1">
+                    <source src="video/Kucing Lola.mp4" type="video/mp4">
+                </video>
+                <video autoplay controls id="video2">
+                    <source src="video/Kucing Rambo.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="contact" id="contact">
+                <h2 style="text-align: center; font-size: 3em">MY CONTACT DETAILS</h2>
+                
+                
+                <div class="row">
+                    <img src="image/My Contact Details.png" style="border-radius: 100%; width:35%; height: 45%; padding:20px;" >
+                    <div style="display: flex; flex-direction: column;">
+                        <text style="padding-left: 15px">
+                            Machang, Kelantan
+                        </text>
+                        <text style="padding-left: 15px">
+                            Phone: +6017-3424740
+                        </text>
+                        <text style="padding-left: 15px; padding-bottom: 10px;">
+                            Email: t.balqisizzati@icloud.com
+                        </text>
+                        <div style=" padding-left: 15px; padding-bottom: 10px; display:flex; align-items:center; flex-direction: row;">
+                            <img style="height:20px; width:20px; padding-right: 6px" src="image/instagram.png"/>  
+                            : t.balqis_
+                        </div>
+                        <div style=" padding-left: 15px; padding-bottom: 10px; display:flex; align-items:center; flex-direction: row;">
+                            <img style="height:20px; width:20px; padding-right: 6px" src="image/telegram.png"/> 
+                            : tuanbalqis
+                        </div>
+                        <div style=" padding-left: 15px; padding-bottom: 10px; display:flex; align-items:center; flex-direction: row;">
+                            <img style="height:20px; width:20px; padding-right: 6px" src="image/tik-tok.png"/>
+                            : balqiskiyowo
+                        </div>
+                        <div class="column">
+                            <form action="/action_page.php">
+                              <div style="display:flex; align-items:flex-start; justify-content: space-between;">
+                                  <input  type="text" id="name" name="name" placeholder="Your name..">
+                                  <input  type="text" id="email" name="email" placeholder="Your email..">
+                              </div>
+                              <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                              <input type="submit" value="Submit">
+                            </form>
+                          </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        All Rights Reserved by Tuan Balqis
+    </footer>
+    <img src="image/hello_kity.gif" alt="Hello Kitty" class="gif-floater">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        alert('♡ welcome to tuan balqis’s website!! ♡');
+
+        var typed = new Typed(".greet", {
+            strings: ["Assalamualaikum and greetings!!","안녕하세요!!"," 你好!!","こんにちは!!"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true
+        });
+
+        const carouselInner = document.querySelector('.carousel-inner');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentIndex = 0;
+    
+        function updateCarousel() {
+            const width = carouselInner.offsetWidth;
+            carouselInner.style.transform = `translateX(${-width * currentIndex}px)`;
+        }
+    
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? carouselInner.children.length - 1 : currentIndex - 1;
+            updateCarousel();
+        });
+    
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === carouselInner.children.length - 1) ? 0 : currentIndex + 1;
+            updateCarousel();
+        });
+    
+        window.addEventListener('resize', updateCarousel);
+    </script>
+</body>
+</html>
